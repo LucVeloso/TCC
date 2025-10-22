@@ -1,0 +1,58 @@
+\changetocdepth {4}
+\changetocdepth {3}
+\babel@toc {brazil}{}\relax 
+\babel@toc {brazil}{}\relax 
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{14}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Objetivos da pesquisa}{14}{section.1.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Fundamentação Teórica}}{16}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Trabalhos Relacionados}{17}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Gestão e Eficiência Energética Industrial}{17}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Conceitos de eficiência e desempenho energético}{17}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Indicadores energéticos (EnPIs) e análise de consumo}{17}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Diretrizes e objetivos da ISO 50001}{18}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Grandezas Elétricas e Qualidade de Energia}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Corrente, tensão, potência ativa, reativa e aparente}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cálculo e análise em sistemas trifásicos}{18}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Principais distúrbios elétricos e seus impactos}{18}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Sensoriamento e Medição de Grandezas Elétricas}{18}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Transformadores de corrente e potencial (TC e TP)}{18}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Medidores digitais e dispositivos inteligentes}{18}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Aquisição e confiabilidade dos dados de medição}{18}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Automação Industrial e Redes de Comunicação}{18}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Estrutura de sistemas automatizados}{18}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Protocolos industriais: Modbus, Profinet, Ethernet/IP e OPC UA}{19}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Integração entre dispositivos de medição e sistemas supervisórios}{19}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6}Arquitetura de Sistemas de Monitoramento Energético}{19}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Etapas: coleta, processamento, armazenamento e visualização}{19}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Comunicação e sincronização de dados (WebSocket, MQTT)}{19}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Sistemas SCADA e IIoT aplicados ao monitoramento energético}{19}{subsection.2.6.3}%
+\contentsline {section}{\numberline {2.7}Visualização e Análise de Dados Energéticos}{19}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Dashboards, indicadores e relatórios de consumo}{19}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Monitoramento em tempo real e análise de tendências}{19}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Aplicações práticas para gestão e tomada de decisão}{19}{subsection.2.7.3}%
+\contentsline {section}{\numberline {2.8}Normas e Regulamentações Técnicas Aplicáveis}{19}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}ISO 50001, IEC 61000, NBR 5410 e NR-10}{20}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Requisitos de segurança, qualidade e eficiência energética}{20}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Trabalhos e Soluções Correlatas}{20}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Sistemas de monitoramento energético existentes}{20}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Comparação entre soluções comerciais e acadêmicas}{20}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}Relevância e diferencial da proposta desenvolvida}{20}{subsection.2.9.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Descrição da Proposta}}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Aplicabilidade}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metodologia}{21}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Resultados Parciais}{21}{section.3.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Considerações Finais}}{22}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Propostas para Continuação da Pesquisa}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Cronograma}{22}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comentários sobre as Referências}{23}{section.4.3}%
+\vspace {\cftbeforechapterskip }
