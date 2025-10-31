@@ -1,11 +1,11 @@
 # Fdb version 4
-["makeindex main.idx"] 1760995368.62745 "main.idx" "main.ind" "main" 1761089809.83143 0
-  "main.idx" 1761089808 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1760995368.62745 "main.idx" "main.ind" "main" 1761530592.34024 0
+  "main.idx" 1761530591 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1761089806.61254 "c:/Users/lucas/Documents/TCC/main.tex" "main.pdf" "main" 1761089809.83206 0
+["pdflatex"] 1761530589.71654 "c:/Users/lucas/Documents/TCC/main.tex" "main.pdf" "main" 1761530592.34075 0
   "1-dados_dissertacao.tex" 1759802449 2087 9d1bb192c3625da293ebf76daf2341a1 ""
   "2-pretextual_dissertacao.tex" 1759795498 12356 0f025f4f6caac51e3464c49402c7fcba ""
   "C:/Users/lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760993396 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -38,7 +38,6 @@
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmss10.tfm" 1256929440 11176 53ebf7a171df1f9447b387b178768bb5 ""
-  "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb" 1256929440 97408 f595704ec2a07246c2d6f7b602587452 ""
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb" 1136864148 33709 b09d2e140b7e807d3a97058263ab6693 ""
@@ -310,16 +309,16 @@
   "C:/Users/lucas/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "c:/Users/lucas/Documents/TCC/main.tex" 1760994528 753 5a553f685157d5df44db11f0196e9c31 ""
   "capitulos/conclusoes.tex" 1759795498 2745 55e17a4f53997718d3bbba4cbb373945 ""
-  "capitulos/fundamentacao.tex" 1761089804 5566 b0dea000783251be9ee571ddb9ecec45 ""
+  "capitulos/fundamentacao.tex" 1761530587 9051 b9e99350b3e6cde994fbe17f522c1e26 ""
   "capitulos/introducao.tex" 1761089431 3985 c6b6ce2326e39c1c121b0a949049131d ""
   "capitulos/proposta.tex" 1759795498 1606 6bb2669e2cbb6b4b51da5e8c4e996c41 ""
   "images/IFPB.png" 1759795498 23679 2ccc4d28167f65b98106bc479c7d6544 ""
-  "main.aux" 1761089809 34628 4a4969cdafb1c1dda4c71e9411742467 "pdflatex"
+  "main.aux" 1761530592 12632 a78064dcf3a8f31251ec23edc3dd192c "pdflatex"
   "main.ind" 1760995368 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.lof" 1761089809 148 37ea8f3e5aa39ddc668768e861abc49c "pdflatex"
-  "main.lot" 1761089809 303 00ec560ba623efb5c4bf8210632357b6 "pdflatex"
+  "main.lof" 1761530592 58 29d9d42ff4957e64b6fbf83bd5f476ea "pdflatex"
+  "main.lot" 1761530592 303 c8d08ee6823fd81210361ac028740f49 "pdflatex"
   "main.tex" 1760994528 753 5a553f685157d5df44db11f0196e9c31 ""
-  "main.toc" 1761089809 5787 4ea9af8a92aa715004c01acfb7f112e8 "pdflatex"
+  "main.toc" 1761530592 2448 2244715b55b69194013239a7300df329 "pdflatex"
   "setup.tex" 1760994449 7717 6efd5e300465406674ca3728320be8ed ""
   (generated)
   "main.aux"
