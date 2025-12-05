@@ -1,0 +1,32 @@
+\input{setup}
+
+\input{1-dados_dissertacao}
+
+\begin{document}
+
+\input{2-pretextual_dissertacao}
+\textual
+
+
+% CAPITULO 1 - INTRODUÇÃO
+\input{capitulos/introducao}
+
+% CAPITULO 2 - FUNDAMENTAÇÃO
+\input{capitulos/fundamentacao}
+
+% CAPITULO 3 - PROPOSTA
+\input{capitulos/proposta}
+
+% CAPITULO 4 - CONCLUSÕES
+\input{capitulos/conclusoes}
+
+% ----------------------------------------------
+% Finaliza a parte no bookmark do PDF para que se inicie o bookmark na raiz e adiciona espaço de parte no Sumário
+% ----------------------------------------------
+\phantompart
+
+% Arquivo de elementos pós-textuais: referências, apêndices e anexos 
+
+%Use _qualificacao para exame de qualificação e _dissertação para texto final de dissertação
+
+\end{document}

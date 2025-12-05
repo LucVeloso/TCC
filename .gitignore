@@ -1,0 +1,55 @@
+# Arquivos gerados pelo LaTeX e abntex2
+# Estes arquivos são temporários e podem ser recriados ao compilar o projeto.
+
+# Arquivos auxiliares e de log
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.dvi
+*.ps
+*.gz
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ind
+*.ilg
+*.brf
+*.bcf
+*.run.xml
+*.spl
+
+# Arquivos específicos do modelo (main e 0-setup)
+0-setup.*
+main.bbl
+main.brf
+main.fdb_latexmk
+main.fls
+main.idx
+main.ilg
+main.ind
+main.lof
+main.log
+main.lot
+main.synctex.gz
+main.toc
+
+# Arquivo PDF final (pode ser gerado a partir do .tex)
+# Se você quiser manter o PDF no repositório, comente a linha abaixo.
+*.pdf
+
+# Arquivos de backup e temporários do editor
+*~
+*.bak
+.DS_Store
+
+# Arquivos do VS Code (se não forem compartilhados)
+.vscode/
