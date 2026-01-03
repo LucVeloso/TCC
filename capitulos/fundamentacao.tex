@@ -1,155 +1,88 @@
 \chapter{Fundamentação Teórica}
 \label{cap:fundamentacao}
 
-% PRINCIPAIS PROBLEMAS:
-% \begin{itemize}
-%     \item Apresentação do embasamento teórico da sua pesquisa não fica clara.
-%     \item Cita, mas não indica o que poderia usar de um autor, especialmente metodologias e resultados.
-%     \item Não indica resultados e se seriam adequados para seu trabalho
-%     \item Muita citação indireta (use mais citações diretas)
-%     \item O texto não mostra argumentos e nem posições, só listando outras pesquisas
-%     \item CUIDADO!!!!!! Não é só mostrar que leu, fazendo citações que nada têm a ver com a outra – cada citação deve ser coesa com a anterior
-%     \item Ter um grau de profundidade dependente da modalidade da pesquisa
-%     \item CUIDADO! Apresentação do referencial teórico do projeto é diferente da do trabalho final que poderá mudar com o delineamento do trabalho:
-%     \begin{itemize}
-%         \item teorias mais aprofundadas
-%         \item outros conceitos básicos inter-relacionados
-%         \item aspectos mais voltados para o efetivamente mostrado no resultado do seu trabalho com estabelecimento de um “diálogo científico”   
-%     \end{itemize}
-% \end{itemize}
+\section{Conceitos de Medição de Energia Elétrica}
 
-% SUGESTÃO DE ROTEIRO:
-% \begin{enumerate}
-%     \item Fundamente os principais conceitos e eventualmente enuncie um MARCO TEÓRICO (um enunciado que é uma dedução ou conceito que será a espinha dorsal do seu trabalho) levado em consideração em todas as seções do projeto; é um conceito “guarda-chuva” do qual não se pretende sair nem se contrapor em nenhum momento. 
-%     \item Descrever o que já foi realizado na área específica do estudo (aqui poderia ser uma seção de TRABALHOS RELACIONADOS no artigo) – mostrar como autores antigos e recentes têm tratado o problema ou problemas similares com mais detalhes do que quando citou na apresentação.
-%     \item Relacionando os autores, pode-se, especialmente em relação à METODOLOGIA e aos RESULTADOS:
-%     \begin{itemize}
-%         \item Mostrar o que um complementa em relação ao outro
-%         \item O que um é diferente em relação ao outro e qual seria a razão
-%         \item As semelhanças de um em relação ao outro e em que isso ajudaria seu trabalho, obtendo ideias das duas pesquisas
-%         \item Mas CUIDADO para não relacionar autores TOTALMENTE INCOMPATÍVEIS!!!!!!
-%     \end{itemize}
-%     \item Situar-se quanto a posição teórica adotada, justificando-a.
-%     \item CUIDADO!!!!!! Não é só mostrar que leu, fazendo citações que nada têm a ver com a outra – cada citação deve ser coesa com a anterior
-% \end{enumerate}
+A medição de energia elétrica em ambientes industriais é um pilar fundamental para a gestão energética e para o cumprimento de normas como a ISO 50001 \cite{iso50001}. O monitoramento contínuo e preciso de grandezas elétricas permite a identificação de ineficiências, a alocação correta de custos e a otimização do consumo \cite{mamede2017}.
+
+\subsection{Grandezas Elétricas Monitoradas (Potência Ativa, Reativa, Fator de Potência)}
+
+Em sistemas de corrente alternada (CA), a potência elétrica é classificada em três componentes principais, cuja compreensão é essencial para a análise do desempenho energético de uma planta industrial:
+
+\begin{itemize}
+    \item \textbf{Potência Ativa ($P$):} Medida em Watts (W) ou quilowatts (kW), é a energia efetivamente convertida em trabalho útil, como o movimento de motores ou o aquecimento \cite{mamede2017}. É a potência que realiza o trabalho e, portanto, a que é faturada pela concessionária de energia.
+    \item \textbf{Potência Reativa ($Q$):} Medida em Volt-Ampère Reativo (VAr) ou quilovolt-ampère reativo (kVAr), é a potência necessária para criar e manter os campos eletromagnéticos em equipamentos indutivos, como motores, transformadores e reatores \cite{kosow1982}. Embora não realize trabalho útil, é indispensável para o funcionamento desses equipamentos e sua circulação na rede pode sobrecarregar o sistema.
+    \item \textbf{Potência Aparente ($S$):} Medida em Volt-Ampère (VA) ou quilovolt-ampère (kVA), é a soma vetorial da Potência Ativa e da Potência Reativa. Representa a potência total que o sistema de distribuição deve fornecer para atender à demanda de carga \cite{mamede2017}.
+\end{itemize}
+
+O \textbf{Fator de Potência ($FP$)} é a razão entre a Potência Ativa e a Potência Aparente ($FP = P/S$). Ele é um indicador crucial da eficiência com que a energia elétrica está sendo utilizada \cite{medeiros2021}. Um baixo fator de potência indica um consumo excessivo de Potência Reativa, o que pode levar a multas por parte da concessionária e a perdas de energia na rede interna da indústria \cite{prado2021}. O monitoramento contínuo dessas grandezas é a base para a implementação de ações de correção e otimização energética.
+
+\subsection{Energia Gerada e Regenerativa em Linhas de Teste}
+
+O conceito de \textbf{energia regenerativa} é amplamente conhecido no setor automotivo, especialmente em veículos elétricos e híbridos, onde o motor elétrico atua como um gerador durante a frenagem ou desaceleração, convertendo a energia cinética do veículo de volta em energia elétrica \cite{azevedo2020}.
+
+No contexto industrial, e especificamente nas linhas de montagem de veículos, a presença de \textbf{linhas de teste} para motores ou veículos completos pode gerar um fenômeno similar. Durante testes de desempenho ou simulações de frenagem, o motor do veículo, quando acoplado a um sistema de dinamômetros ou freios regenerativos, pode funcionar como um gerador, injetando energia de volta na rede elétrica da fábrica \cite{andrade2019}.
+
+A medição e quantificação dessa energia gerada e regenerativa é um diferencial importante para o balanço energético do setor. A capacidade de monitorar o fluxo bidirecional de energia (consumo e geração) permite o cálculo mais preciso do consumo líquido de cada linha de montagem e a identificação de oportunidades para otimizar o aproveitamento dessa energia, alinhando-se aos princípios de sustentabilidade e eficiência energética da ISO 50001 \cite{iso50001}.
 
 
+\section{Conceitos de Medição de Energia Elétrica}
 
+A medição de energia elétrica em ambientes industriais é um pilar fundamental para a gestão energética e para o cumprimento de normas como a ISO 50001 (ABNT, 2018). O monitoramento contínuo e preciso de grandezas elétricas permite a identificação de ineficiências, a alocação correta de custos e a otimização do consumo (MAMEDE FILHO, 2017).
 
-% \section{Trabalhos Relacionados}
-% Teste
+\subsection{Grandezas Elétricas Monitoradas (Potência Ativa, Reativa, Fator de Potência)}
 
-% Exemplo de figura. A Figura~\ref{fig:exfig} mostra a Logo do IFPB.
+Em sistemas de corrente alternada (CA), a potência elétrica é classificada em três componentes principais, cuja compreensão é essencial para a análise do desempenho energético de uma planta industrial:
 
-% \begin{figure}[htp]
-% 	\centering
-% 	\caption{\label{fig:inrush-fig02} Logo IFPB.}
-% 	\includegraphics[width = 0.2\linewidth]{images/IFPB.png}
-% 	\legend{Fonte: IFPB.}
-% 	\label{fig:exfig}
-% \end{figure}
+\begin{itemize}
+    \item \textbf{Potência Ativa ($P$):} Medida em Watts (W) ou quilowatts (kW), é a energia efetivamente convertida em trabalho útil, como o movimento de motores ou o aquecimento (MAMEDE FILHO, 2017). É a potência que realiza o trabalho e, portanto, a que é faturada pela concessionária de energia.
+    
+    \item \textbf{Potência Reativa ($Q$):} Medida em Volt-Ampère Reativo (VAr) ou quilovolt-ampère reativo (kVAr), é a potência necessária para criar e manter os campos eletromagnéticos em equipamentos indutivos, como motores, transformadores e reatores (KOSOW, 1982). Embora não realize trabalho útil, é indispensável para o funcionamento desses equipamentos e sua circulação na rede pode sobrecarregar o sistema.
+    
+    \item \textbf{Potência Aparente ($S$):} Medida em Volt-Ampère (VA) ou quilovolt-ampère (kVA), é a soma vetorial da Potência Ativa e da Potência Reativa. Representa a potência total que o sistema de distribuição deve fornecer para atender à demanda de carga (MAMEDE FILHO, 2017).
+\end{itemize}
 
-% Exemplo de equação: matematicamente, o Fator de Potência (FP) pode ser expresso como:
-% \begin{equation}
-% 	\label{eq:k-55}
-%     {
-%     \displaystyle 
-%     FP = \frac{\cos(\varphi)}{\sqrt{1 - THD^2}}
-%     }
-% \end{equation}
-% Teste
+O \textbf{Fator de Potência ($FP$)} é a razão entre a Potência Ativa e a Potência Aparente ($FP = P/S$). Ele é um indicador crucial da eficiência com que a energia elétrica está sendo utilizada (MEDEIROS, 2021). Um baixo fator de potência indica um consumo excessivo de Potência Reativa, o que pode levar a multas por parte da concessionária e a perdas de energia na rede interna da indústria (PRADO, 2021). O monitoramento contínuo dessas grandezas é a base para a implementação de ações de correção e otimização energética.
 
-% \section{Gestão e Eficiência Energética Industrial}
-%     PlaceHolder
-% \subsection{Conceitos de eficiência e desempenho energético}
-%     PlaceHolder
-% \subsection{Indicadores energéticos (EnPIs) e análise de consumo}
-%     PlaceHolder
-% \subsection{Diretrizes e objetivos da ISO 50001}
-%     PlaceHolder
+\subsection{Energia Gerada e Regenerativa em Linhas de Teste}
 
-% \section{Grandezas Elétricas e Qualidade de Energia}
-%     PlaceHolder
-% \subsection{Corrente, tensão, potência ativa, reativa e aparente}
-%     PlaceHolder
-% \subsection{Cálculo e análise em sistemas trifásicos}
-%     PlaceHolder
-% \subsection{Principais distúrbios elétricos e seus impactos}
-%     PlaceHolder
+O conceito de \textbf{energia regenerativa} é amplamente conhecido no setor automotivo, especialmente em veículos elétricos e híbridos, onde o motor elétrico atua como um gerador durante a frenagem ou desaceleração, convertendo a energia cinética do veículo de volta em energia elétrica (AZEVEDO; GUARNIERI; BOCCATO, 2020).
 
-% \section{Sensoriamento e Medição de Grandezas Elétricas}
-%     PlaceHolder
-% \subsection{Transformadores de corrente e potencial (TC e TP)}
-%     PlaceHolder
-% \subsection{Medidores digitais e dispositivos inteligentes}
-%     PlaceHolder
-% \subsection{Aquisição e confiabilidade dos dados de medição}
-%     PlaceHolder
+No contexto industrial, e especificamente nas linhas de montagem de veículos, a presença de \textbf{linhas de teste} para motores ou veículos completos pode gerar um fenômeno similar. Durante testes de desempenho ou simulações de frenagem, o motor do veículo, quando acoplado a um sistema de dinamômetros ou freios regenerativos, pode funcionar como um gerador, injetando energia de volta na rede elétrica da fábrica (ANDRADE, 2019).
 
-% \section{Automação Industrial e Redes de Comunicação}
-%     PlaceHolder
-% \subsection{Estrutura de sistemas automatizados}
-%     PlaceHolder
-% \subsection{Protocolos industriais: Modbus, Profinet, Ethernet/IP e OPC UA}
-%     PlaceHolder
-% \subsection{Integração entre dispositivos de medição e sistemas supervisórios}
-%     PlaceHolder
+A medição e quantificação dessa energia gerada e regenerativa é um diferencial importante para o balanço energético do setor. A capacidade de monitorar o fluxo bidirecional de energia (consumo e geração) permite o cálculo mais preciso do consumo líquido de cada linha de montagem e a identificação de oportunidades para otimizar o aproveitamento dessa energia, alinhando-se aos princípios de sustentabilidade e eficiência energética da ISO 50001 (ABNT, 2018).
 
-% \section{Arquitetura de Sistemas de Monitoramento Energético}
-%     PlaceHolder
-% \subsection{Etapas: coleta, processamento, armazenamento e visualização}
-%     PlaceHolder
-% \subsection{Comunicação e sincronização de dados (WebSocket, MQTT)}
-%     PlaceHolder
-% \subsection{Sistemas SCADA e IIoT aplicados ao monitoramento energético}
-%     PlaceHolder
+\section{Instrumentação Industrial}
+\subsection{Multimedidores Siemens Sentron PAC 3200}
+\subsection{Controladores Lógicos Programáveis (CLP) Siemens S7-1200}
 
-% \section{Visualização e Análise de Dados Energéticos}
-%     PlaceHolder
-% \subsection{Dashboards, indicadores e relatórios de consumo}
-%     PlaceHolder
-% \subsection{Monitoramento em tempo real e análise de tendências}
-%     PlaceHolder
-% \subsection{Aplicações práticas para gestão e tomada de decisão}
-%     PlaceHolder
+\section{Comunicação e Sistemas Supervisórios}
+\subsection{Protocolo OPC UA}
+\subsection{Arquitetura SCADA e Sistemas de Aquisição de Dados (DAQs)}
 
-% \section{Normas e Regulamentações Técnicas Aplicáveis}
-%     PlaceHolder
-% \subsection{ISO 50001, IEC 61000, NBR 5410 e NR-10}
-%     PlaceHolder
-% \subsection{Requisitos de segurança, qualidade e eficiência energética}
-%     PlaceHolder
-% Teste
+\section{Indicadores de Desempenho Energético (EnPIs)}
 
-% \section{Trabalhos e Soluções Correlatas}
-% Teste
-% \subsection{Sistemas de monitoramento energético existentes}
-% Teste
-% \subsection{Comparação entre soluções comerciais e acadêmicas}
-% Teste
-% \subsection{Relevância e diferencial da proposta desenvolvida}
-% Teste
+% Conteúdo original do arquivo fundamentacao.tex (mantido como referência para o usuário)
+% Após introduzir o contexto da eficiência energética industrial e a necessidade de monitoramento conforme a ISO 50001, esta seção apresenta os conceitos fundamentais relacionados à gestão de energia, aquisição de dados industriais e diagnóstico de falhas em motores elétricos, os quais embasam o desenvolvimento do sistema proposto.
 
-Após introduzir o contexto da eficiência energética industrial e a necessidade de monitoramento conforme a ISO 50001, esta seção apresenta os conceitos fundamentais relacionados à gestão de energia, aquisição de dados industriais e diagnóstico de falhas em motores elétricos, os quais embasam o desenvolvimento do sistema proposto.
+% \section{Gestão e Eficiência Energética}
+% A gestão energética tem como objetivo otimizar o uso dos recursos elétricos de modo a reduzir perdas e custos operacionais. No contexto industrial, o consumo elétrico está fortemente associado ao uso de motores e equipamentos de grande porte, o que torna essencial o acompanhamento contínuo de indicadores de desempenho energético.
 
-\section{Gestão e Eficiência Energética}
-A gestão energética tem como objetivo otimizar o uso dos recursos elétricos de modo a reduzir perdas e custos operacionais. No contexto industrial, o consumo elétrico está fortemente associado ao uso de motores e equipamentos de grande porte, o que torna essencial o acompanhamento contínuo de indicadores de desempenho energético.
+% A norma ISO 50001 estabelece diretrizes para implementação de sistemas de gestão de energia (SGE), baseados no ciclo PDCA (Planejar, Executar, Verificar e Agir). O cumprimento dessa norma exige medições precisas de consumo, definição de indicadores e documentação de melhorias contínuas no desempenho energético.
 
-A norma ISO 50001 estabelece diretrizes para implementação de sistemas de gestão de energia (SGE), baseados no ciclo PDCA (Planejar, Executar, Verificar e Agir). O cumprimento dessa norma exige medições precisas de consumo, definição de indicadores e documentação de melhorias contínuas no desempenho energético.
+% \section{Monitoramento e Aquisição de Dados Industriais}
+% O monitoramento contínuo é um dos pilares para atender aos requisitos da ISO 50001. Em ambientes industriais, ele é realizado por dispositivos de medição, como analisadores de energia e controladores programáveis, integrados via protocolos de comunicação.
 
-\section{Monitoramento e Aquisição de Dados Industriais}
-O monitoramento contínuo é um dos pilares para atender aos requisitos da ISO 50001. Em ambientes industriais, ele é realizado por dispositivos de medição, como analisadores de energia e controladores programáveis, integrados via protocolos de comunicação.
+% Sistemas SCADA (Supervisory Control and Data Acquisition) permitem a supervisão de processos e o registro de variáveis elétricas em tempo real. A integração desses sistemas com tecnologias IoT possibilita o armazenamento e análise remota dos dados energéticos.
 
-Sistemas SCADA (Supervisory Control and Data Acquisition) permitem a supervisão de processos e o registro de variáveis elétricas em tempo real. A integração desses sistemas com tecnologias IoT possibilita o armazenamento e análise remota dos dados energéticos.
+% Os principais protocolos utilizados em redes industriais são Modbus, Profinet e OPC UA, que garantem interoperabilidade entre equipamentos de diferentes fabricantes e compatibilidade com plataformas de análise.
 
-Os principais protocolos utilizados em redes industriais são Modbus, Profinet e OPC UA, que garantem interoperabilidade entre equipamentos de diferentes fabricantes e compatibilidade com plataformas de análise.
+% \section{Motores Elétricos e Diagnóstico de Falhas}
+% Os motores de indução trifásicos são responsáveis por uma parcela significativa do consumo energético industrial. O desempenho desses motores é diretamente afetado por condições elétricas e mecânicas, sendo o diagnóstico precoce de falhas essencial para evitar paradas não programadas.
 
-\section{Motores Elétricos e Diagnóstico de Falhas}
-Os motores de indução trifásicos são responsáveis por uma parcela significativa do consumo energético industrial. O desempenho desses motores é diretamente afetado por condições elétricas e mecânicas, sendo o diagnóstico precoce de falhas essencial para evitar paradas não programadas.
+% As falhas mais comuns incluem curto-circuitos entre espiras, desgaste de rolamentos, desalinhamentos e desequilíbrios de fase. Técnicas de diagnóstico como a Análise de Assinatura de Corrente (MCSA) e o uso da Transformada Rápida de Fourier (FFT) permitem identificar variações nos sinais de corrente e vibração associadas a essas falhas.
 
-As falhas mais comuns incluem curto-circuitos entre espiras, desgaste de rolamentos, desalinhamentos e desequilíbrios de fase. Técnicas de diagnóstico como a Análise de Assinatura de Corrente (MCSA) e o uso da Transformada Rápida de Fourier (FFT) permitem identificar variações nos sinais de corrente e vibração associadas a essas falhas.
+% \section{Instrumentação e Dispositivos de Medição}
+% Para o monitoramento elétrico, utilizam-se sensores de corrente, tensão e temperatura, além de medidores inteligentes que consolidam as informações de consumo e qualidade de energia. Dispositivos como o Siemens Sentron PAC3200 possibilitam a leitura detalhada de parâmetros como potência ativa e reativa, fator de potência e distorção harmônica total (THD).
 
-\section{Instrumentação e Dispositivos de Medição}
-Para o monitoramento elétrico, utilizam-se sensores de corrente, tensão e temperatura, além de medidores inteligentes que consolidam as informações de consumo e qualidade de energia. Dispositivos como o Siemens Sentron PAC3200 possibilitam a leitura detalhada de parâmetros como potência ativa e reativa, fator de potência e distorção harmônica total (THD).
-
-Esses dados, quando tratados e analisados, permitem tanto o acompanhamento do desempenho energético quanto a identificação de condições anormais em equipamentos, alinhando o sistema às práticas de manutenção preditiva e gestão energética exigidas pela ISO 50001.
+% Esses dados, quando tratados e analisados, permitem tanto o acompanhamento do desempenho energético quanto a identificação de condições anormais em equipamentos, alinhando o sistema às práticas de manutenção preditiva e gestão energética exigidas pela ISO 50001.
