@@ -2,17 +2,131 @@
 \label{cap:metodologia}
 
 \section{Caracterização do Estudo de Caso}
+
+O presente trabalho tem como cenário de aplicação o setor de montagem final do Polo Automotivo Stellantis de Goiana, Pernambuco. Este complexo industrial é um dos mais modernos do país e se destaca pela produção de veículos de alta demanda, como os modelos Jeep Renegade, Compass e Commander, além da Fiat Toro e da Ram Rampage. A escolha deste ambiente como estudo de caso é estratégica, pois o setor automotivo é um dos maiores consumidores de energia elétrica no cenário industrial brasileiro, tornando a gestão energética um fator crítico para a sustentabilidade e competitividade da planta \cite{peixoto2023}.
+
 \subsection{O Setor de Montagem da Stellantis Goiana}
+
+O setor de montagem final é a etapa do processo produtivo onde a carroceria, já pintada e tratada, é integrada aos componentes mecânicos e de acabamento. O processo é caracterizado por uma linha de produção complexa e sequencial, que envolve a montagem de subsistemas mecânicos (motor, transmissão, suspensão), a união da carroceria com o \textit{powertrain} (o chamado "casamento") e, por fim, a instalação de componentes internos e de acabamento.
+
+A operação da planta ocorre em regime de \textbf{três turnos} contínuos, estendendo-se do segundo turno de domingo até o terceiro turno de sexta-feira ou sábado, dependendo da escala de produção. Este regime de 24 horas por dia, 5 a 6 dias por semana, impõe um desafio constante de monitoramento, especialmente nos períodos de não-produção (finais de semana e madrugadas), onde o consumo de energia deve ser minimizado e restrito a sistemas de manutenção e segurança. A análise do consumo durante esses períodos de "consumo em vazio" é crucial para identificar oportunidades de redução de gastos com iluminação e alimentação de dispositivos auxiliares.
+
 \subsection{Mapeamento dos Pontos de Medição}
 
+O sistema de monitoramento energético foi implementado em \textbf{17 linhas de montagem} distintas dentro do galpão de montagem final. A estratégia de medição adotada visou segregar o consumo de energia em duas categorias principais para cada linha, permitindo uma análise granular do desempenho energético:
+
+\begin{enumerate}
+    \item \textbf{Armário Elétrico Principal (Produção):} Medição do consumo de energia destinado diretamente aos equipamentos de produção, como transportadores, ferramentas pneumáticas e robôs de assistência à montagem.
+    \item \textbf{Armário Auxiliar (Utilidades):} Medição do consumo de energia para sistemas de suporte, como iluminação da linha, tomadas auxiliares para PCs de produção e carregadores de ferramentas sem fio (parafusadeiras).
+\end{enumerate}
+
+A alimentação de todos os armários é realizada em \textbf{tensão trifásica de 440V}. Em cada ponto de medição, foram instalados multimedidores Siemens Sentron PAC 3200, configurados para coletar um conjunto abrangente de variáveis elétricas. A Tabela \ref{tab:variaveis_coletadas} resume as grandezas monitoradas em tempo real e armazenadas para análise:
+
+\begin{table}[h]
+    \centering
+    \caption{Variáveis Elétricas Coletadas nos Pontos de Medição}
+    \label{tab:variaveis_coletadas}
+    \begin{tabularx}{\textwidth}{l X}
+        \toprule
+        \textbf{Categoria} & \textbf{Variáveis Coletadas} \\
+        \midrule
+        Energia & Consumo de Energia Ativa (kWh), Consumo de Energia Reativa (kVArh) \\
+        Potência & Potência Ativa (kW), Potência Reativa (kVAr), Potência Aparente (kVA) \\
+        Qualidade & Fator de Potência (FP), Distorção Harmônica Total (THD) \\
+        Elétricas & Tensão de Linha e Fase (V), Correntes por Fase (A) \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+É importante notar que, devido à arquitetura de alimentação, o consumo do armário auxiliar é derivado do armário principal. Portanto, o consumo líquido de produção é obtido pela subtração do consumo auxiliar do consumo total do armário principal, permitindo o cálculo preciso dos EnPIs de produção.
+
 \section{Arquitetura de Hardware e Comunicação}
+
+A arquitetura do sistema de monitoramento energético foi concebida para se integrar de forma nativa à infraestrutura de automação industrial existente na planta da Stellantis, garantindo alta disponibilidade e minimizando a latência na aquisição de dados. A solução se baseia na integração vertical de dispositivos de campo (PAC 3200) com os controladores de linha (S7-1200) e, posteriormente, com o sistema supervisório via OPC UA.
+
 \subsection{Configuração dos Medidores PAC 3200 e CLPs S7-1200}
+
+A comunicação entre os multimedidores SENTRON PAC 3200 e os Controladores Lógicos Programáveis (CLPs) SIMATIC S7-1200 é realizada majoritariamente através do protocolo \textbf{PROFINET}, que é o padrão de comunicação Ethernet industrial da Siemens. Esta escolha garante uma comunicação determinística e em tempo real, essencial para a coleta de dados de qualidade de energia.
+
+A integração é facilitada pelo uso do arquivo \textbf{GSD} (\textit{General Station Description}) fornecido pelo fabricante, que permite a configuração do PAC 3200 como um dispositivo de campo (I/O Device) dentro do ambiente de engenharia TIA Portal. Desta forma, as variáveis elétricas monitoradas pelo PAC 3200 (tensão, corrente, potências, THD) são mapeadas diretamente para a memória do CLP S7-1200, eliminando a necessidade de programação complexa de comunicação via Modbus e aproveitando a robustez da rede PROFINET.
+
 \subsection{O Servidor OPC UA (PG) e a Rede Industrial}
 
+A estratégia de comunicação para o nível de supervisão utiliza o protocolo \textbf{OPC UA}, implementado em uma \textbf{PG (\textit{Programming Device})} dedicada a cada linha de montagem. Este PG atua como um servidor OPC UA, centralizando as conexões de coleta de dados e desempenhando um papel crucial na arquitetura:
+
+\begin{enumerate}
+    \item \textbf{Alívio de Carga do CLP:} Ao centralizar a coleta de dados, o servidor OPC UA evita o congestionamento das conexões do CLP S7-1200, permitindo que o controlador se dedique primariamente às suas tarefas críticas de controle de processo.
+    \item \textbf{Interoperabilidade Vertical:} O OPC UA fornece uma interface padronizada e segura para que sistemas de nível superior (banco de dados, sistemas MES/ERP, dashboards) acessem os dados de energia sem depender de \textit{drivers} proprietários do CLP.
+\end{enumerate}
+
+A infraestrutura de rede industrial é composta por uma combinação de topologias \textbf{estrela} e \textbf{anel}, utilizando \textit{switches} industriais da linha \textbf{Scalance} da Siemens. Esta arquitetura de rede de alta performance e redundância (no caso da topologia em anel) assegura a integridade e a disponibilidade dos dados de energia, mesmo em ambientes industriais com alto ruído eletromagnético. A Tabela \ref{tab:arquitetura_comunicacao} resume os principais componentes e suas funções na arquitetura.
+
+\begin{table}[h]
+    \centering
+    \caption{Componentes e Funções na Arquitetura de Comunicação}
+    \label{tab:arquitetura_comunicacao}
+    \begin{tabularx}{\textwidth}{l l X}
+        \toprule
+        \textbf{Componente} & \textbf{Função Principal} & \textbf{Protocolo de Comunicação} \\
+        \midrule
+        PAC 3200 & Medição de grandezas elétricas & PROFINET (via GSD) \\
+        CLP S7-1200 & Concentrador de dados e controle de linha & PROFINET (com PAC 3200) \\
+        PG (Servidor) & Centralização e disponibilização dos dados & OPC UA (para sistemas superiores) \\
+        Switches Scalance & Gerenciamento e redundância da rede & PROFINET/Ethernet \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
 \section{Desenvolvimento do Servidor de Coleta de Dados}
-\subsection{Lógica de Programação (JavaScript) e Aquisição de Dados}
+
+O sistema de aquisição de dados e supervisão foi desenvolvido como uma aplicação \textit{full-stack} para garantir flexibilidade, escalabilidade e uma interface de usuário moderna. A arquitetura de software é baseada no \textit{framework} \textbf{NuxtJS}, que utiliza o motor \textbf{Bun} para o ambiente de execução \textit{backend} e o \textit{framework} \textbf{Vue.js} para o \textit{frontend} (dashboard). Esta combinação permite que a mesma aplicação gerencie a lógica de coleta de dados e sirva a interface de visualização.
+
+\subsection{Lógica de Programação e Aquisição de Dados}
+
+A lógica de aquisição de dados é executada no \textit{backend} do NuxtJS, utilizando a capacidade de \textit{server routes} do motor Nitro. O processo de coleta segue o fluxo de dados desde o dispositivo de campo até o servidor de armazenamento:
+
+\begin{enumerate}
+    \item \textbf{Aquisição no CLP (10Hz):} O multimedidor PAC 3200 se comunica com o CLP S7-1200 via PROFINET. A leitura dos valores atuais das variáveis elétricas é sincronizada com o \textit{bit} de 10Hz do CLP. Esta alta frequência de atualização garante que os dados na memória do CLP (Data Blocks - DBs) estejam sempre atualizados, sendo a aquisição gerenciada por uma função bloco (FB) fornecida pelo fabricante, que utiliza o GSD do dispositivo.
+    \item \textbf{Conexão OPC UA:} O \textit{backend} do NuxtJS atua como um cliente OPC UA, estabelecendo conexão com o servidor OPC UA que roda em cada PG de linha. O cliente realiza a leitura dos nós de informação (variáveis) que representam os dados de energia armazenados nas DBs do CLP.
+    \item \textbf{Frequência de Coleta:} A coleta de dados para o sistema supervisório é realizada a cada \textbf{1 segundo} por padrão. No entanto, o sistema foi projetado para permitir que o administrador force leituras mais frequentes, caso seja necessário um diagnóstico de alta resolução em momentos específicos (ex: durante um evento de falha ou teste de carga).
+\end{enumerate}
+
+A escolha do Bun como ambiente de execução contribui para a alta performance e baixa latência do sistema, essenciais para lidar com a coleta simultânea de dados de 17 linhas de montagem a cada segundo.
+
 \subsection{Estrutura do Banco de Dados (Armazenamento)}
 
+A estratégia de persistência de dados foi definida para otimizar o acesso rápido para visualização e a capacidade de armazenamento de longo prazo para análise de séries temporais. Foram utilizados dois sistemas de gerenciamento de banco de dados (SGBDs):
+
+\begin{enumerate}
+    \item \textbf{SQLite (Dados Estáticos e Última Leitura):} Utilizado para armazenar dados estáticos de configuração (ex: nomes das linhas, identificadores dos medidores) e os valores da última leitura de cada variável. O SQLite oferece acesso extremamente rápido e baixa sobrecarga, sendo ideal para o \textit{dashboard} que precisa exibir o estado atual da planta.
+    \item \textbf{TimescaleDB (Séries Temporais):} Utilizado para o armazenamento histórico de todas as leituras coletadas. O TimescaleDB é uma extensão do PostgreSQL otimizada para dados de séries temporais, permitindo compressão eficiente e consultas rápidas em grandes volumes de dados. Esta escolha é crucial para a análise de tendências de longo prazo, o cálculo de EnPIs e a comparação de períodos de consumo, que são requisitos da ISO 50001.
+\end{enumerate}
+
+A separação da base de dados garante que as consultas históricas complexas não afetem a performance da interface de supervisão em tempo real.
+
+
 \section{Interface Supervisória e Visualização (Dashboard)}
-\subsection{Implementação dos EnPIs}
-\subsection{Funcionalidades de Análise Rápida por Linha de Montagem}
+
+A interface supervisória foi desenvolvida com o objetivo de proporcionar uma visualização clara e intuitiva do desempenho energético da planta, permitindo que diferentes níveis de usuários (operadores, engenheiros de manutenção e gestores) possam monitorar e analisar os dados de forma eficiente. A aplicação, construída com NuxtJS e Vue.js, oferece uma navegação hierárquica em três níveis, permitindo um "afunilamento" da análise desde a visão geral da fábrica até o detalhe de cada sensor individual.
+
+\subsection{Níveis de Visualização e Funcionalidades}
+
+O dashboard é composto por três telas principais, cada uma com um foco específico:
+
+\begin{enumerate}
+    \item \textbf{Tela Principal (Visão Geral da Fábrica):} Apresenta um panorama consolidado do consumo energético da planta. Inclui cartões de resumo com indicadores chave como "Consumo no Turno", "Consumo no Dia" e "kWh/carro" para a fábrica inteira. Um elemento visual central é o desenho da planta da montagem final, que serve como um mapa interativo para acesso às linhas individuais. Abaixo, um gráfico de linha exibe o consumo total do dia, com os turnos de trabalho claramente demarcados por diferentes tons de azul no fundo, facilitando a identificação de padrões de consumo ao longo do tempo.
+    \item \textbf{Tela de Linha de Montagem (Visão Detalhada por Linha):} Ao selecionar uma linha no mapa da tela principal, o usuário é direcionado para uma visão detalhada do desempenho energético daquela linha específica. Esta tela exibe o consumo no turno e no dia para a linha, além de um painel lateral com o status de cada medidor PAC 3200 e outros sensores específicos (ex: sensores em motores) instalados na linha. Cartões de status indicam a regularidade dos valores, com destaque visual (fundo vermelho) para irregularidades como Fator de Potência abaixo de 98\% ou detecção de sobretensão/subtensão.
+    \item \textbf{Tela de Sensor (Visão Individual do Medidor):} Aprofundando a análise, esta tela permite visualizar os registros históricos de um sensor PAC 3200 específico. São apresentados gráficos de tendência e tabelas com os valores de todas as grandezas elétricas coletadas (tensão, corrente, potências, THD), possibilitando comparações e análises detalhadas de desempenho, similar às funcionalidades encontradas em sistemas de monitoramento avançados \cite{tractian2024}.
+\end{enumerate}
+
+\subsection{Implementação dos EnPIs e Sistema de Alertas}
+
+Os Indicadores de Desempenho Energético (EnPIs) são calculados e exibidos em tempo real, sendo o \textbf{kWh/carro} um dos principais EnPIs monitorados na tela principal, refletindo a eficiência energética da produção. Além dos EnPIs, o sistema incorpora um robusto mecanismo de alertas para proatividade na gestão da manutenção e energia:
+
+\begin{enumerate}
+    \item \textbf{Alertas Visuais no Dashboard:} Irregularidades nos valores de Fator de Potência, tensão ou outras grandezas críticas são imediatamente sinalizadas nos cartões de status das linhas e medidores, utilizando um fundo vermelho para chamar a atenção do operador.
+    \item \textbf{Notificações Personalizadas:} Caso uma leitura de qualquer sensor seja considerada irregular e possa indicar um problema potencial, uma notificação é gerada e exibida em uma aba de notificações no perfil do usuário responsável (especialista de elétrica e gerente de manutenção). Adicionalmente, um e-mail é enviado para esses usuários, garantindo que sejam informados prontamente sobre desvios críticos no desempenho energético.
+\end{enumerate}
+
+Este sistema de alertas e notificações é fundamental para a manutenção preditiva e para o cumprimento dos requisitos de monitoramento contínuo e tomada de ação corretiva exigidos pela ISO 50001 \cite{iso50001}.
+

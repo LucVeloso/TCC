@@ -53,14 +53,60 @@ No contexto industrial, e especificamente nas linhas de montagem de veículos, a
 A medição e quantificação dessa energia gerada e regenerativa é um diferencial importante para o balanço energético do setor. A capacidade de monitorar o fluxo bidirecional de energia (consumo e geração) permite o cálculo mais preciso do consumo líquido de cada linha de montagem e a identificação de oportunidades para otimizar o aproveitamento dessa energia, alinhando-se aos princípios de sustentabilidade e eficiência energética da ISO 50001 (ABNT, 2018).
 
 \section{Instrumentação Industrial}
+
+A instrumentação industrial desempenha um papel fundamental na modernização das plantas produtivas, permitindo a coleta precisa de dados para a gestão de ativos e eficiência energética. No contexto da Indústria 4.0, a integração de dispositivos de medição inteligentes com controladores lógicos programáveis possibilita não apenas o monitoramento em tempo real, mas também a análise preditiva e a otimização de processos \cite{silva2023}.
+
 \subsection{Multimedidores Siemens Sentron PAC 3200}
+
+O multimedidor SENTRON PAC3200 é um dispositivo multifuncional projetado para a medição e monitoramento de grandezas elétricas em sistemas de distribuição de energia de baixa tensão. Este equipamento é capaz de registrar mais de 50 parâmetros elétricos, incluindo tensões de fase e de linha, correntes, potências (ativa, reativa e aparente), fator de potência e frequência \cite{siemens2017pac}.
+
+De acordo com o manual técnico do fabricante, o PAC3200 destaca-se pela sua alta precisão na medição de energia ativa (Classe 0.5S conforme IEC 62053-22) e pela versatilidade de comunicação, suportando protocolos como Modbus TCP de forma nativa e outros protocolos industriais via módulos de expansão \cite{siemens2017pac}. Em aplicações de gestão energética baseadas na ISO 50001, o uso desses dispositivos permite a rastreabilidade do consumo e a identificação de pontos de desperdício, sendo essencial para a composição de indicadores de desempenho energético (EnPIs) \cite{peixoto2023}.
+
 \subsection{Controladores Lógicos Programáveis (CLP) Siemens S7-1200}
 
+O SIMATIC S7-1200 é um controlador modular compacto, posicionado pela Siemens como uma solução versátil para automação básica e intermediária. Sua arquitetura integra uma CPU com interfaces de comunicação (PROFINET/Ethernet), entradas e saídas digitais e analógicas, além de suporte a funções tecnológicas como controle de movimento e contagem rápida \cite{siemens2024s71200}.
+
+No âmbito do monitoramento energético, o S7-1200 atua como um concentrador de dados e elemento de controle. Através do protocolo Modbus TCP ou OPC UA, o CLP pode realizar a leitura determinística dos dados provenientes dos multimedidores PAC3200, processando essas informações localmente para tomadas de decisão rápidas ou encaminhandoas para sistemas supervisórios e bancos de dados \cite{lino2025}. A flexibilidade do S7-1200 permite a implementação de lógicas de controle de demanda, onde cargas não prioritárias podem ser desligadas automaticamente para evitar multas por excesso de demanda contratada, alinhando a operação da planta aos objetivos de eficiência energética \cite{peixoto2023}.
+
+
 \section{Comunicação e Sistemas Supervisórios}
+
+A comunicação eficiente entre dispositivos de campo e sistemas de gestão é o alicerce da digitalização industrial. No contexto da Indústria 4.0, a interoperabilidade deixa de ser apenas uma conveniência técnica para se tornar um requisito estratégico, permitindo que dados brutos de sensores e medidores sejam transformados em informações acionáveis para a tomada de decisão \cite{melo2020}.
+
 \subsection{Protocolo OPC UA}
+
+O \textit{Open Platform Communications Unified Architecture} (OPC UA) é um protocolo de comunicação industrial independente de plataforma e orientado a serviços, amplamente reconhecido como o padrão de interoperabilidade para a Indústria 4.0 \cite{sousa2024}. Diferente de protocolos tradicionais como o Modbus, que se limitam à transferência de registros de dados, o OPC UA oferece um modelo de informação rico, onde os dados são acompanhados de metadados que descrevem seu significado e contexto \cite{ladegourdie2022}.
+
+Uma das principais vantagens do OPC UA é a sua robustez em termos de segurança, integrando mecanismos de autenticação, autorização e criptografia diretamente em sua pilha de comunicação \cite{melo2020}. Além disso, sua arquitetura cliente-servidor permite que múltiplos clientes (como sistemas supervisórios, bancos de dados ou aplicações em nuvem) acessem simultaneamente os dados de um servidor OPC UA integrado em dispositivos como o CLP Siemens S7-1200, garantindo uma integração vertical fluida entre o chão de fábrica e os sistemas corporativos \cite{martins2023}.
+
 \subsection{Arquitetura SCADA e Sistemas de Aquisição de Dados (DAQs)}
 
+Os sistemas de Controle Supervisório e Aquisição de Dados (\textit{Supervisory Control and Data Acquisition} - SCADA) são arquiteturas de software projetadas para monitorar e controlar processos industriais complexos em tempo real \cite{fortinet2024}. Um sistema SCADA típico é composto por quatro elementos principais: a interface homem-máquina (HMI), o sistema de supervisão, as unidades terminais remotas (RTUs) ou controladores lógicos programáveis (CLPs), e a infraestrutura de comunicação \cite{cast4it2024}.
+
+No âmbito do monitoramento energético, os sistemas SCADA atuam como Sistemas de Aquisição de Dados (DAQs) centralizados, responsáveis por coletar variáveis elétricas de diversos pontos da planta, processar cálculos de indicadores de desempenho (EnPIs) e gerar alarmes em caso de anomalias de consumo \cite{pma2025}. A evolução dessas arquiteturas para o modelo de "SCADA baseado em Web" ou "Cloud SCADA" permite que gestores de energia acessem dashboards de consumo de qualquer local, facilitando o cumprimento dos requisitos de monitoramento contínuo exigidos pela norma ISO 50001 \cite{checklist2025}.
+
 \section{Indicadores de Desempenho Energético (EnPIs)}
+
+A medição e o monitoramento do desempenho energético são requisitos centrais para qualquer organização que busque a certificação na norma ISO 50001. Para que a gestão seja eficaz, é necessário traduzir dados complexos de consumo em métricas compreensíveis e comparáveis, conhecidas como Indicadores de Desempenho Energético (\textit{Energy Performance Indicators} - EnPIs) \cite{iso50001}.
+
+\subsection{Definição e Importância conforme ISO 50001 e ISO 50006}
+
+De acordo com a norma ABNT NBR ISO 50001:2018, um EnPI é definido como um "valor ou medida quantitativa do desempenho energético, conforme definido pela organização" \cite{iso50001}. Enquanto a ISO 50001 estabelece os requisitos gerais para o sistema de gestão, a norma complementar ISO 50006 fornece diretrizes específicas para o estabelecimento, utilização e manutenção desses indicadores, garantindo que eles sejam representativos da realidade operacional da planta \cite{andersson2021}.
+
+A importância dos EnPIs reside na sua capacidade de demonstrar a melhoria do desempenho energético ao longo do tempo. Sem indicadores bem definidos, uma organização pode observar uma redução no consumo total de energia devido a uma queda na produção, e não necessariamente devido a um ganho de eficiência \cite{bruni2021}. Portanto, os EnPIs devem ser normalizados em relação a variáveis relevantes, como volume de produção, horas de operação ou condições climáticas, para permitir uma comparação justa entre diferentes períodos \cite{shim2018}.
+
+\subsection{Tipos de Indicadores e Aplicação no Setor Automotivo}
+
+Os indicadores de desempenho energético podem ser classificados em diferentes níveis de complexidade, dependendo do objetivo da análise \cite{iso50006}:
+
+\begin{itemize}
+    \item \textbf{Valor de Consumo Absoluto:} Medição direta da energia consumida (ex: kWh total por mês). É útil para contabilidade e faturamento, mas limitado para análise de eficiência.
+    \item \textbf{Indicadores de Intensidade Energética:} Relação entre o consumo de energia e uma métrica de produção (ex: kWh por veículo produzido). É o indicador mais comum no setor automotivo para monitorar a eficiência das linhas de montagem \cite{nissan2014}.
+    \item \textbf{Modelos Estatísticos (Regressão Linear):} Utilizam ferramentas estatísticas para prever o consumo esperado com base em múltiplas variáveis. A diferença entre o consumo real e o previsto indica o ganho ou perda de eficiência \cite{shim2018}.
+\end{itemize}
+
+No contexto de uma planta automotiva como a Stellantis, a aplicação de EnPIs por linha de montagem ou por setor (pintura, funilaria, montagem final) permite identificar os "Usos Significativos de Energia" (USEs). Isso possibilita que a equipe de manutenção e gestão foque seus esforços de otimização nos processos que possuem maior impacto no custo final e na pegada de carbono da organização \cite{peixoto2023}.
+
 
 % Conteúdo original do arquivo fundamentacao.tex (mantido como referência para o usuário)
 % Após introduzir o contexto da eficiência energética industrial e a necessidade de monitoramento conforme a ISO 50001, esta seção apresenta os conceitos fundamentais relacionados à gestão de energia, aquisição de dados industriais e diagnóstico de falhas em motores elétricos, os quais embasam o desenvolvimento do sistema proposto.

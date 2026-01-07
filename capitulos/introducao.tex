@@ -6,8 +6,22 @@ A crescente necessidade de aprimorar a eficiência energética industrial tem le
 No cenário industrial brasileiro, a busca por maior eficiência energética também se apresenta como uma necessidade estratégica diante do crescimento das demandas de produção e do aumento dos custos com energia elétrica. De acordo com o Programa Nacional de Conservação de Energia Elétrica (PROCEL), o setor industrial representa uma das maiores parcelas do consumo energético nacional, e a adoção de práticas sistemáticas de gestão e monitoramento pode reduzir em até 20\% o desperdício de energia em determinados processos produtivos (EPE, 2022). Essa realidade reforça a importância de soluções tecnológicas que aliem baixo custo de implementação com alto potencial de diagnóstico e melhoria contínua.
 
 \section{Contexto da Eficiência Energética Industrial}
+
+A eficiência energética na indústria é um pilar fundamental para a sustentabilidade e competitividade no cenário global contemporâneo. Em um contexto de crescente demanda por recursos e preocupações ambientais, a otimização do consumo de energia não se limita apenas à redução de custos operacionais, mas abrange também a diminuição da pegada de carbono e o cumprimento de regulamentações ambientais mais rigorosas \cite{procenge2024}. A indústria, sendo um dos maiores consumidores de energia, possui um papel central na transição para uma economia de baixo carbono, e a implementação de práticas e tecnologias que promovam o uso racional da energia é imperativa \cite{esferaenergia2024}.
+
 \subsection{A Norma ISO 50001 e a Gestão de Energia}
+
+A International Organization for Standardization (ISO) desenvolveu a norma ISO 50001 para fornecer uma estrutura robusta para que organizações de todos os portes e setores possam estabelecer, implementar, manter e melhorar um Sistema de Gestão de Energia (SGE). A ISO 50001:2018, em particular, enfatiza uma abordagem sistemática para alcançar a melhoria contínua do desempenho energético, incluindo a eficiência energética, o uso e o consumo de energia \cite{iso50001}. Ao adotar esta norma, as empresas são incentivadas a desenvolver uma política energética, estabelecer metas e objetivos, planejar ações para alcançá-los, monitorar e medir o desempenho, e revisar criticamente o SGE para garantir sua eficácia \cite{dqsglobal2024}.
+
+A implementação de um SGE baseado na ISO 50001 não apenas resulta em economias financeiras significativas através da redução do consumo de energia, mas também fortalece a imagem corporativa, melhora a conformidade regulatória e promove uma cultura de conscientização energética entre los colaboradores \cite{tractian2025}. A norma exige a identificação dos Usos Significativos de Energia (USEs) e o estabelecimento de Indicadores de Desempenho Energético (EnPIs), que são métricas essenciais para quantificar e demonstrar a melhoria contínua do desempenho energético \cite{iso50006}.
+
 \subsection{O Setor Automotivo e a Sustentabilidade (Contexto Stellantis)}
+
+O setor automotivo global enfrenta uma pressão crescente por sustentabilidade, impulsionada por regulamentações ambientais mais rigorosas, demandas dos consumidores por veículos mais eficientes e a necessidade de reduzir a pegada de carbono em toda a cadeia de valor. Neste cenário, a eficiência energética nas plantas de produção assume um papel estratégico, complementando os esforços de eletrificação e desenvolvimento de veículos mais limpos \cite{stellantis2025descarbonizacao}.
+
+A Stellantis, um dos maiores grupos automotivos do mundo, tem demonstrado um compromisso explícito com a sustentabilidade, estabelecendo metas ambiciosas de descarbonização e investindo em iniciativas de economia circular e eficiência energética em suas operações globais \cite{stellantis2025sustentabilidade}. O Polo Automotivo de Goiana, em Pernambuco, onde este estudo de caso foi realizado, é um exemplo desse compromisso, sendo reconhecido por suas práticas de gestão ambiental e pela busca contínua por otimização de recursos \cite{stellantis2022carbonneutral}.
+
+A implementação de sistemas de monitoramento energético, como o proposto neste trabalho, alinha-se diretamente com a estratégia da Stellantis de atingir a neutralidade de carbono até 2038, cobrindo todas as emissões diretas e indiretas \cite{stellantis2025carbonneutrality}. Ao otimizar o consumo de energia na fase de produção, a empresa não apenas reduz seus custos operacionais, mas também contribui significativamente para seus objetivos de sustentabilidade, reforçando sua liderança em ESG (Environmental, Social, and Governance) no segmento automotivo \cite{portaldaautopeca2025}.
 
 \section{Definição do Problema e Justificativa}
 O principal desafio enfrentado por muitas indústrias é atender às exigências de rastreabilidade e controle energético impostas pela ISO 50001, sem incorrer em altos custos de implantação de novos sistemas. Em muitos casos, há equipamentos de medição e comunicação já instalados na planta, porém subutilizados devido à falta de integração entre dispositivos, protocolos e plataformas de supervisão.
@@ -29,3 +43,14 @@ Os objetivos específicos são:
 \end{itemize}
 
 \section{Estrutura do Trabalho}
+
+Este trabalho está organizado em cinco capítulos, cada um abordando uma etapa fundamental para o desenvolvimento e a validação do sistema de monitoramento energético. O Capítulo 1, a presente Introdução, contextualiza a importância da eficiência energética industrial, a relevância da norma ISO 50001 e o papel do setor automotivo na sustentabilidade, além de apresentar o problema de pesquisa, os objetivos e a justificativa do estudo.
+
+O Capítulo 2, intitulado \textbf{Fundamentação Teórica}, explora os conceitos essenciais que sustentam o projeto. São abordados temas como medição de grandezas elétricas, instrumentação industrial (com foco nos multimedidores Siemens Sentron PAC 3200 e CLPs S7-1200), protocolos de comunicação industrial (OPC UA) e sistemas supervisórios (SCADA), finalizando com a discussão sobre Indicadores de Desempenho Energético (EnPIs) e sua relação com a ISO 50001.
+
+No Capítulo 3, \textbf{Metodologia e Arquitetura do Sistema Supervisório}, é detalhada a abordagem utilizada para o desenvolvimento do sistema. Este capítulo apresenta a caracterização do estudo de caso na Stellantis Goiana, o mapeamento dos pontos de medição, a arquitetura de hardware e comunicação (PROFINET, GSD, Scalance), o desenvolvimento do servidor de coleta de dados (NuxtJS, Bun, OPC UA) e a estrutura do banco de dados (SQLite, TimescaleDB), bem como a interface supervisória e o sistema de alertas.
+
+O Capítulo 4, \textbf{Análise e Resultados do Monitoramento Energético}, dedica-se à apresentação e discussão dos dados coletados. Serão analisados os padrões de consumo por linha de montagem e por turno, a eficácia do sistema na identificação de oportunidades de otimização e a validação dos EnPIs implementados, sempre com a devida atenção à confidencialidade dos dados da empresa.
+
+Por fim, o Capítulo 5, \textbf{Conclusões e Trabalhos Futuros}, sintetiza os principais achados do estudo, avalia o cumprimento dos objetivos propostos, destaca as contribuições do trabalho para a área e sugere direções para pesquisas futuras, consolidando o impacto e a relevância da pesquisa desenvolvida.
+
